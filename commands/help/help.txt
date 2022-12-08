@@ -1,0 +1,24 @@
+*Comandos AfanaBot*
+Para mostrar esta pantalla escribe ```/help```
+
+*Sticker*
+Respondiendo a un mensaje o enviando un archivo con el comando
+```/sticker```
+
+*Copypasta*
+Hay disponibles los siguientes copypastas: 
+    - vaporeon
+    - gardevoir
+    - anime
+    - 13
+    - anti-vaporeon
+    - umbreon
+    - porno-furro
+```/copypasta [nombre]```
+
+*Papear*
+Respondiendo a un mensaje que tenga imagen o video
+```/papear```
+
+*Ruleta Rusa*
+```/ruleta-rusa [Número del 1 al 6]```
