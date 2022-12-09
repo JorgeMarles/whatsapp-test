@@ -1,0 +1,25 @@
+{
+    "commands":
+    {
+        "messageCommands":[
+            "help",
+            "sticker",
+            "copypasta",
+            "ruleta-rusa",
+            "papear",
+            "image"
+        ],
+        "functions":[
+            "help",
+            "sticker",
+            "copypasta",
+            "ruletaRusa",
+            "papear",
+            "stickerToImg"
+        ]
+    },
+    "mentions":
+    [
+        "all"
+    ]
+}

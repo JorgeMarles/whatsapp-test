@@ -1,9 +1,8 @@
 const { MessageMedia } = require("whatsapp-web.js");
 const messageSticker = require("./messageSticker");
 
-async function sticker(client, msg) {
-    if (typeof msg.body === "string" && msg.body == "/sticker") {
-        let media = null;
+async function sticker(client, args, msg) {
+    let media = null;
 
         if (msg.hasMedia) {
             media = await download(msg);
@@ -44,7 +43,6 @@ async function sticker(client, msg) {
                 "Ha ocurrido un error, intente con un mensaje más reciente"
             );
         }
-    }
 }
 
 async function download(msg) {

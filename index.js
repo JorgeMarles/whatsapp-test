@@ -6,12 +6,21 @@ const copypasta = require("./commands/copypasta/copypasta");
 const ruletaRusa = require("./commands/ruletaRusa");
 const papear = require("./commands/papear");
 const help = require("./commands/help/help");
+const stickerToImg = require("./commands/sticker-to-img");
+const fs = require("fs");
 
 let client = new Client({
     authStrategy: new LocalAuth(),
 });
 
+
 client.initialize();
+
+const data = fs.readFileSync("./commands-bot.json","utf-8");
+const dataJSON = JSON.parse(data);
+const cmmnds = dataJSON.commands.messageCommands;
+const cmmndsFn = dataJSON.commands.functions;
+const mentions = dataJSON.mentions;
 
 client.on("qr", (qr) => {
     qrcode.generate(qr, { small: true });
@@ -22,10 +31,20 @@ client.on("ready", () => {
 });
 
 client.on("message_create", async (msg) => {
-    all(client, msg);
-    sticker(client, msg);
-    copypasta(client, msg);
-    ruletaRusa(client, msg);
-    papear(client, msg);
-    help(client, msg);
+    msg.body = msg.body.trim();
+    if(msg.body.startsWith("/")){
+        const allCommand = msg.body.slice(1);
+        const words = allCommand.split(" ");
+        const command = words[0];
+        const args = words.slice(1);
+        const i = cmmnds.indexOf(command);
+        if(i>0){
+            const fn = cmmndsFn[i];
+            eval(fn+"(client,args,msg)")
+        }else{
+            msg.reply("Comando desconocido 🧐 revisa que lo hayas escrito correctamente.");
+        }
+    }else if(msg.body === "@all" ){
+        all(client, msg);//no lo supe optimizar
+    }
 });

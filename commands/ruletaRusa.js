@@ -1,9 +1,8 @@
-async function ruletaRusa(client, msg) {
-    if (typeof msg.body === "string" && msg.body.startsWith("/ruleta-rusa")) {
-        const command = msg.body.split(" ");
+async function ruletaRusa(client, args, msg) {
+    
 
-        if (command.length == 2) {
-            const num = parseInt(command[1]);
+        if (args.length == 1) {
+            const num = parseInt(args[0]);
 
             if (num > 0 && num <= 6) {
                 const death = Math.floor(Math.random() * 5 + 1);
@@ -29,7 +28,6 @@ async function ruletaRusa(client, msg) {
                 msg.reply("Elige un número del 1 al 6");
             }
         }
-    }
 }
 
 module.exports = ruletaRusa;

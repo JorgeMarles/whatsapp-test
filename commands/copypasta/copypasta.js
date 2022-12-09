@@ -1,20 +1,21 @@
 const fs = require("fs").promises;
 
-async function copypasta(client, msg) {
-    if (typeof msg.body === "string" && msg.body.startsWith("/copypasta")) {
-        const command = msg.body.split(" ");
 
-        if (command.length == 2) {
-            const data = await fs.readFile(
-                "./commands/copypasta/copypastas.json",
-                "utf8"
-            );
-            const json = JSON.parse(data);
-            const text = json[command[1]];
 
-            if (text !== undefined) {
-                msg.reply(text);
-            }
+async function copypasta(client, args, msg) {
+    if (typeof msg.body === "string" && args.length > 0) {
+        const copy = args[0];
+
+        const data = await fs.readFile(
+            "./commands/copypasta/copypastas.json",
+            "utf8"
+        );
+        const json = JSON.parse(data);
+        const text = json[copy];
+        if (text !== undefined) {
+            msg.reply(text);
+        }else{
+            msg.reply("No existe ese copypasta :(");
         }
     }
 }

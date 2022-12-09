@@ -28,7 +28,7 @@ async function draw(img, username, text, width, height) {
     context.fill();
 
     // User Name
-    context.font = "20px LiberationMono";
+    context.font = "30px Sans";
     context.fillStyle = "#06cf9c";
     context.fillText(username, 175, 50);
 
