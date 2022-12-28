@@ -1,0 +1,26 @@
+{
+
+    "contactos":[
+        {
+            "id":"573197955100@c.us",
+            "name":"Adriana Parra"
+        },
+        {
+            "id":"573208659986@c.us",
+            "name":"Sabrinna"
+        },
+        {
+            "id":"573134605728@c.us",
+            "name":"Lizeth"
+        },
+        {
+            "id":"573123536757@c.us",
+            "name":"Johan Reyes"
+        }
+    ],
+    "me":{
+        "id":"573227398660-1597184952@g.us",
+        "name":"grupo personal (Andres)"
+    }
+
+}

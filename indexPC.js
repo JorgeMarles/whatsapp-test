@@ -6,11 +6,7 @@ const papear = require("./commands/papear");
 const fs = require("fs");
 
 let client = new Client({
-    authStrategy: new LocalAuth(),
-    puppeteer: {
-		args: ['--no-sandbox'],
-        executablePath:"/usr/bin/chromium"
-	}
+    authStrategy: new LocalAuth()
 
 });
 
@@ -29,7 +25,6 @@ client.on("qr", (qr) => {
 client.on("ready", () => {
     console.log("Client is ready!");
 });
-
 
 client.on("message_create", async (msg) => {
     msg.body = msg.body.trim();
