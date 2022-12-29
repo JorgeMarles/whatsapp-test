@@ -1,8 +1,6 @@
 const qrcode = require("qrcode-terminal");
 const { Client, LocalAuth } = require("whatsapp-web.js");
 
-const papear = require("./commands/papear");
-
 const fs = require("fs");
 
 let client = new Client({
