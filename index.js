@@ -54,9 +54,13 @@ function esta(contactos, persona){
     return pos;
 }
 */
-
 const { Client } = require('whatsapp-web.js');
-const client = new Client();
+const client = new Client({
+    puppeteer: {
+        args: ["--no-sandbox"],
+        executablePath: "/usr/bin/chromium"
+     }
+});
 
 client.on('qr', (qr) => {
     console.log('QR RECEIVED', qr);
