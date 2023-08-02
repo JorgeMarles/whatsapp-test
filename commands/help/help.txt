@@ -22,3 +22,6 @@ Respondiendo a un mensaje que tenga imagen o video
 
 *Ruleta Rusa*
 ```/ruleta-rusa [Número del 1 al 6]```
+
+*Verificar si ya salió la liquidación*
+```/liquid```

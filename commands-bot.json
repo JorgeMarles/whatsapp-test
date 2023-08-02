@@ -7,7 +7,8 @@
             "copypasta",
             "ruleta-rusa",
             "papear",
-            "image"
+            "image",
+            "liquid"
         ],
         "functions":[
             "help",
@@ -15,7 +16,8 @@
             "copypasta",
             "ruletaRusa",
             "papear",
-            "stickerToImg"
+            "stickerToImg",
+            "liquid"
         ]
     },
     "mentions":
