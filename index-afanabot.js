@@ -8,6 +8,7 @@ const papear = require("./commands/papear");
 const help = require("./commands/help/help");
 const stickerToImg = require("./commands/sticker-to-img");
 const liquid = require("./commands/liquidacion");
+const horariosIC = require("./commands/horariosInclusion");
 const fs = require("fs");
 
 let client = new Client({

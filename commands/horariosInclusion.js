@@ -1,7 +1,7 @@
 const fs = require("fs").promises;
 const puppeteer = require("puppeteer")
 
-async function liquid(client, args, msg, switchl, getter) {
+async function horariosIC(client, args, msg, switchl, getter) {
 
     if(getter()){
         msg.reply("Ya hay una petición, por favor espera a que se termine");
@@ -78,19 +78,22 @@ async function liquid(client, args, msg, switchl, getter) {
 	
 	//console.log("Al entrar: "+page.url());
 	//click a generar liquidacion
-	await page.click("#content_completw > div.wrapper > div > section.content > div.row > div:nth-child(1) > div > a");
+	await page.click("#content_completw > div.wrapper > aside > section > ul > li:nth-child(6) > a");
+	await new Promise(r => setTimeout(r, 500));
+    await page.click("#content_completw > div.wrapper > aside > section > ul > li.treeview.active > ul > li > a");
 	await new Promise(r => setTimeout(r, tiempoAEsperar));
+
 
 	//cuando la liquidación no esta disponible, se genera(es decir, se inserta un modal con el mensaje de error)
 	//se supone que cuando no se encuentra este mensaje, entonces si hay liquidación
-	const errorModals = await page.$x("//strong[contains(text(), 'no se encuentra habilitado')]");
+	const errorModals = await page.$x("//div[contains(p,'no se encuentran disponibles')]");
     var resp = "";
 	if (errorModals.length > 0) {
 		let element = errorModals[0];
 		let value = await element.evaluate(el => el.textContent)
-		resp = value;
+		resp = value.trim();
 	} else {
-	    resp = "Ya hay liquidación :D"
+	    resp = "Ya hay horarios de inclusión y cancelación"
 	}
 	
     msg.reply(resp)
@@ -119,4 +122,4 @@ async function liquid(client, args, msg, switchl, getter) {
 }
 
 
-module.exports = liquid;
+module.exports = horariosIC;

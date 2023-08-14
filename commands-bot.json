@@ -8,7 +8,7 @@
             "ruleta-rusa",
             "papear",
             "image",
-            "liquid"
+            "horariosIC"
         ],
         "functions":[
             "help",
@@ -17,7 +17,7 @@
             "ruletaRusa",
             "papear",
             "stickerToImg",
-            "liquid"
+            "horariosIC"
         ]
     },
     "mentions":
